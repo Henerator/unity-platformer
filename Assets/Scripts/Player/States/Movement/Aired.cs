@@ -7,6 +7,7 @@ public class Aired : BaseMovementState
   public override void Enter()
   {
     base.Enter();
+    _grounded = false;
     stateMachine.animator.SetBool(PlayerAnimationFlag.isAired, true);
   }
 

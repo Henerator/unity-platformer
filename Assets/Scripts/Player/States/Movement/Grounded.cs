@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Grounded : BaseMovementState
@@ -8,6 +7,7 @@ public class Grounded : BaseMovementState
   public override void Enter()
   {
     base.Enter();
+    _grounded = true;
     stateMachine.animator.SetBool(PlayerAnimationFlag.isGrounded, true);
     SubscribeJumpEvent();
   }
@@ -37,13 +37,11 @@ public class Grounded : BaseMovementState
 
   private void SubscribeJumpEvent()
   {
-    // Debug.Log("Ground subscribe");
     stateMachine.jumpInput.started += OnJump;
   }
 
   private void UnsubscribeJumpEvent()
   {
-    // Debug.Log("Ground unsubscribe");
     stateMachine.jumpInput.started -= OnJump;
   }
 }

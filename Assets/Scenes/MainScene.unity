@@ -10994,7 +10994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugSettings:
-    enableLog: 0
+    enableLog: 1
   componentSettings:
     rigitbody: {fileID: 1331540943}
     animator: {fileID: 1331540948}
@@ -11002,6 +11002,7 @@ MonoBehaviour:
     groundSensor: {fileID: 1996432658}
   groundSettings:
     moveSpeed: 8
+    runSpeed: 12
   airSettings:
     jumpSpeed: 16
     moveSpeed: 8
@@ -11024,6 +11025,15 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: b5984b2b-40c2-445a-8686-2bc8077d3685
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  sprintInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 486849b6-2490-4da8-95b4-fdfd63e44e05
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []

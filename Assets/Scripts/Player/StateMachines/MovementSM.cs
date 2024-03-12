@@ -15,6 +15,7 @@ public class MovementSM : StateMachine<MovementSM>
 
     [HideInInspector] public BaseState<MovementSM> idleState;
     [HideInInspector] public BaseState<MovementSM> movingState;
+    [HideInInspector] public BaseState<MovementSM> runningState;
     [HideInInspector] public BaseState<MovementSM> fallingState;
     [HideInInspector] public BaseState<MovementSM> jumpingState;
 
@@ -31,6 +32,7 @@ public class MovementSM : StateMachine<MovementSM>
 
         idleState = new Idle(this);
         movingState = new Moving(this);
+        runningState = new Running(this);
         fallingState = new Falling(this);
         jumpingState = new Jumping(this);
 
@@ -56,7 +58,8 @@ public class MovementSM : StateMachine<MovementSM>
     [Serializable]
     public class GroundSettings
     {
-        public float moveSpeed = 7;
+        public float moveSpeed = 8;
+        public float runSpeed = 12;
     }
 
     [Serializable]

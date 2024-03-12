@@ -25,7 +25,6 @@ public class StateMachine<SM> : MonoBehaviour
 
     public void ChangeState(BaseState<SM> newState)
     {
-        Log($"[EXIT STATE] {currentState.name}");
         Log($"[ENTER STATE] {newState.name}");
 
         currentState.Exit();
@@ -39,7 +38,7 @@ public class StateMachine<SM> : MonoBehaviour
         return null;
     }
 
-    public void Log(string message)
+    protected void Log(string message)
     {
         if (!debugSettings.enableLog) return;
 
