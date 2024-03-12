@@ -1,9 +1,9 @@
-public class BaseState
+public class BaseState<SM>
 {
   public string name;
-  protected StateMachine stateMachine;
+  protected SM stateMachine;
 
-  public BaseState(string name, StateMachine stateMachine)
+  public BaseState(string name, SM stateMachine)
   {
     this.name = name;
     this.stateMachine = stateMachine;

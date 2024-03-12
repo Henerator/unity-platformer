@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
+public class StateMachine<SM> : MonoBehaviour
 {
-    [SerializeField] private bool enableLog = false;
+    public DebugSettings debugSettings;
 
-    BaseState currentState;
+    BaseState<SM> currentState;
 
     void Start()
     {
@@ -22,10 +23,10 @@ public class StateMachine : MonoBehaviour
         currentState?.UpdatePhysics();
     }
 
-    public void ChangeState(BaseState newState)
+    public void ChangeState(BaseState<SM> newState)
     {
-        Log($"[EXIT STATE]{currentState.name}");
-        Log($"[ENTER STATE]{newState.name}");
+        Log($"[EXIT STATE] {currentState.name}");
+        Log($"[ENTER STATE] {newState.name}");
 
         currentState.Exit();
 
@@ -33,13 +34,21 @@ public class StateMachine : MonoBehaviour
         currentState.Enter();
     }
 
-    protected virtual BaseState GetInitialState()
+    protected virtual BaseState<SM> GetInitialState()
     {
         return null;
     }
 
-    private void Log(string message)
+    public void Log(string message)
     {
+        if (!debugSettings.enableLog) return;
+
         Debug.Log(message);
+    }
+
+    [Serializable]
+    public class DebugSettings
+    {
+        public bool enableLog = false;
     }
 }
